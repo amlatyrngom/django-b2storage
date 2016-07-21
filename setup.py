@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name="django_b2storage",
-    version='0.2',
+    version='0.2.1',
     description='A backblaze b2 storage system for django',
     long_description=readme(),
     keywords='backblaze b2 django storage media',
