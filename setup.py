@@ -18,7 +18,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Intended Audience :: Developers',
     ],
-    url='https://github.com/amlatyrngom/django_b2storage',
+    url='https://github.com/amlatyrngom/django-b2storage',
     author='Amadou Latyr Ngom',
     author_email='amlatyr.ngom@gmail.com',
     licence='MIT',
