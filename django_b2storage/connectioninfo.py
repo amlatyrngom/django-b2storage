@@ -36,7 +36,6 @@ class ConnectionInfo():
         """
         # Check if the token is still valid
         if datetime.datetime.now() - self._auth_request_time >= self._validDuration:
-            self._auth_request_time = datetime.datetime.now() # reset time
             id_and_key = self.ACCOUNT_ID + ':' + self.APP_KEY
             basic_auth_string = 'Basic ' + decode(base64.b64encode(id_and_key.encode('utf-8')))
             headers = {'Authorization' : basic_auth_string}
@@ -45,6 +44,7 @@ class ConnectionInfo():
                 headers = headers
             )
             response = urlopen(request)
+            self._auth_request_time = datetime.datetime.now() # reset time
             self._auth_data = json.loads(decode(response.read()))
             response.close()
         return self._auth_data
@@ -63,7 +63,7 @@ class ConnectionInfo():
 
     @property
     def minimumPartSize(self):
-        return self.auth_data['downloadUrl']
+        return self.auth_data['minimumPartSize']
 
     @property
     def upload_data(self):
