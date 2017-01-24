@@ -42,4 +42,4 @@ To see this in action alongside with `Heroku`_, see my tutorial `here`_
 
 .. _Backblaze B2: https://www.backblaze.com/b2/cloud-storage.html
 .. _Heroku: https://www.heroku.com/
-.. _here: http://hb2_tutorial.getforge.io/
+.. _here: http://hb2-tutorial.getforge.io/
