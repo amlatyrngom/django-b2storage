@@ -1,6 +1,6 @@
 import base64
 import json
-from urllib.request import Request, urlopen
+from urllib2 import Request, urlopen
 import datetime
 
 from django.conf import settings
@@ -45,7 +45,7 @@ class ConnectionInfo():
             )
             response = urlopen(request)
             self._auth_request_time = datetime.datetime.now() # reset time
-            self._auth_data = json.loads(decode(response.read()))
+            self._auth_data = json.loads(response.read())
             response.close()
         return self._auth_data
 
