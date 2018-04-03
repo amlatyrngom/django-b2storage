@@ -26,7 +26,11 @@ class B2Storage(Storage):
 
     def _save(self, name, content):
         upload_data = self.connection.upload_data
-        file_data = content.read()
+        if hasattr(content, 'chunks'):
+            file_data = b''.join(chunk for chunk in content.chunks())
+        else:
+            file_data = content.read()
+
         file_sha1 = hashlib.sha1(file_data).hexdigest()
         content_type = ""
         if hasattr(content.file, 'content_type'):
