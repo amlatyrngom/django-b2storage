@@ -11,8 +11,15 @@ def decode(m):
 def encode(m):
     return m.encode('utf-8')
 
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
 
-class ConnectionInfo():
+
+class ConnectionInfo(metaclass=Singleton):
     """
     A class that contains information required to establish connections to the api
     """
